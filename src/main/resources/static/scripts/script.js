@@ -4,7 +4,7 @@
   }
 
   function getAllAppointments() {
-    return fetch('http://localhost:8080/get_all_appointments')
+    return fetch('https://grooming.onrender.com/get_all_appointments')
         .then(response => {
             // console.log(response);
             if (!response.ok) {
@@ -90,7 +90,7 @@ async function generateTimeSlotsForDay(date) {
 }
 
 async function getCurrentUser() {
-    return fetch('http://localhost:8080/get_current_user', {method:'GET'})
+    return fetch('https://grooming.onrender.com/get_current_user', {method:'GET'})
         .then(response => {
             if (!response.ok) {
                 throw new Error('Failed to fetch appointments');
@@ -104,7 +104,7 @@ async function getCurrentUser() {
 
 
 function connectUser(appointmentId) {
-    return fetch('http://localhost:8080/connect_appointment_to_user?appointmentId=' + appointmentId.toString(), {method:'PUT'})
+    return fetch('https://grooming.onrender.com/connect_appointment_to_user?appointmentId=' + appointmentId.toString(), {method:'PUT'})
         .then(response => {
             if (!response.ok) {
                 throw new Error('Failed to fetch appointments');

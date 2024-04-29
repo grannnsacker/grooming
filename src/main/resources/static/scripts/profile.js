@@ -1,12 +1,6 @@
-// var data = [
-//     {"id":270,"date":"2024-04-29T11:00:00","isBooked":true},
-//     {"id":303,"date":"2024-05-02T08:00:00","isBooked":true},
-//     {"id":278,"date":"2024-04-30T07:00:00","isBooked":true},
-//     {"id":325,"date":"2024-05-04T06:00:00","isBooked":true}
-//   ];
 
 async function getCurrentAppointments() {
-    return fetch('http://localhost:8080/get_current_appointments')
+    return fetch('https://grooming.onrender.com/get_current_appointments')
         .then(response => {
             // console.log(response);
             if (!response.ok) {
@@ -90,7 +84,7 @@ async function getCurrentAppointments() {
 }
 
   async function delete_appointment_from_current(id) {
-    return fetch('http://localhost:8080/delete_appointment_from_current?appointmentId=' + id, {method:'POST'})
+    return fetch('https://grooming.onrender.com/delete_appointment_from_current?appointmentId=' + id, {method:'POST'})
         .then(response => {
             if (!response.ok) {
                 throw new Error('Failed to fetch appointments');
