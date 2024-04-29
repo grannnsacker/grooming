@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/resources/images/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/resources/styles/registration.css">
+    <link rel="stylesheet" href="/resources/styles/index.css">
+    <title>Регистрация</title>
+</head>
+<body>
+<header>
+    <img id="paw" src="resources/images/dog.svg" alt="За стеклом" width="70px" height="70px">
+    <p>Лапки</p>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/welcome">
+                <button class="my-button3">Главная</button>
+            </a></li>
+            <li><a href="/appointments">
+                <button class="my-button3">Расписание</button>
+            </a></li>
+            <li><a href="/profile">
+                <button class="my-button3">Личный кабинет</button>
+            </a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class="container">
+        <form method="POST" th:action="@{/registration}" th:object="${user}">
+            <div th:if="${param.exists}" class="alert alert-error">
+                Пользователь с таким именем существует
+            </div>
+            <div th:if="${param.error}" class="alert alert-error">
+                Пароли не совпадают!
+            </div>
+            <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+                <h2>Регистрация</h2>
+            </div>
+            <div class="form-group">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" id="username" name="username" th:field="*{username}" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" th:field="*{password}" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Подтверждение пароля:</label>
+                <input type="password" id="confirm_password" name="confirmPassword" th:field="*{confirmPassword}"
+                       required>
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 40px;">
+                <button class="submitbutton" type="submit">Регистрация</button>
+            </div>
+        </form>
+        <p>Уже есть аккаунт? <a href="/login" style="text-decoration: none; color: #1938a9; font-weight: 700;">Войти</a>
+        </p>
+    </div>
+</main>
+<footer>
+    <p>&copy;2024  Александриди-Шандаевский Егорий |  ИКБО-20-22</p>
+</footer>
+</body>
+</html>

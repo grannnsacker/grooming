@@ -9,13 +9,13 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>kursach</artifactId>
+	<artifactId>java15</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>kursach</name>
+	<name>java11</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
-		<start-class>com.example.kursach.JavaKursachApplication</start-class>
+		<start-class>com.example.java11.Java11Application.java</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -127,7 +127,44 @@
 				<version>3.2.5</version>
 				<configuration>
 					<mainClass>${start-class}</mainClass>
+					<image>
+						<env>
+							<BP_JVM_VERSION>${java.version}</BP_JVM_VERSION>
+						</env>
+					</image>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
 				</configuration>
+
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>pre-integration-test</id>
+						<goals>
+							<goal>start</goal>
+						</goals>
+						<configuration>
+							<skip>true</skip>
+						</configuration>
+					</execution>
+					<execution>
+						<id>post-integration-test</id>
+						<goals>
+							<goal>stop</goal>
+						</goals>
+						<configuration>
+							<skip>true</skip>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

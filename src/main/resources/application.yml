@@ -6,6 +6,9 @@ program:
     group: IKBO-20-22
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/java23
-    username: postgres
-    password: password
+    url: ${URL}
+    username: ${POSTGRES}
+    password: ${PASSWORD}
+#    url: jdbc:postgresql://localhost:5432/kursach
+#    username: postgres
+#    password: password

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/resources/images/logo.ico" type="image/x-icon">
+    <title>Вход</title>
+    <link rel="stylesheet" href="/resources/styles/login.css">
+    <link rel="stylesheet" href="/resources/styles/index.css">
+</head>
+<body>
+<header>
+    <img id="paw" src="/resources/images/dog.svg" alt="За стеклом" width="70px" height="70px">
+    <p>Лапки</p>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/welcome">
+                <button class="my-button3">Главная</button>
+            </a></li>
+            <li><a href="/appointments">
+                <button class="my-button3">Расписание</button>
+            </a></li>
+            <li><a href="/profile">
+                <button class="my-button3">Личный кабинет</button>
+            </a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class="container">
+        <form name="f" method="POST" th:action="@{/login}" th:object="${user}">
+            <div th:if="${param.error}" class="alert alert-error">
+                Неправильное имя или пароль!
+            </div>
+            <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+                <h2>Вход в аккаунт</h2>
+            </div>
+            <div class="form-group">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" id="username" name="username"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password"/>
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 40px;">
+                <button class="submitbutton" type="submit">Вход</button>
+            </div>
+        </form>
+        <p>Нет аккаунта? <a href="/registration"
+                            style="text-align: center; text-decoration: none; color: #1938a9; font-weight: 700;">Регистрация</a>
+        </p>
+    </div>
+</main>
+    <footer>
+        <p>&copy;2024 Александриди-Шандаевский Егорий | ИКБО-20-22</p>
+    </footer>
+</body>
+</html>

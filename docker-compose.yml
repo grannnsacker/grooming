@@ -1,0 +1,22 @@
+services:
+  app:
+    depends_on:
+      - db
+    build: .
+    environment:
+      URL: "jdbc:postgresql://db:5432/kursach"
+      POSTGRES: "postgres"
+      PASSWORD: "password"
+    ports:
+      - 8080:8080
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_USER: "postgres"
+      POSTGRES_DB: "kursach"
+
+

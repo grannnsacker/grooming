@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome page</title>
-  <link rel="stylesheet" href="/resources/styles/welcome.css">
+  <title>Appointments</title>
+  <link rel="stylesheet" href="/resources/styles/appointments.css">
   <link rel="stylesheet" href="/resources/styles/index.css">
-    <!-- <link rel="stylesheet" href="../static/styles/profile.css">
+    <!-- <link rel="stylesheet" href="../static/styles/appointments.css">
     <link rel="stylesheet" href="../static/styles/index.css"> -->
 
 </head>
@@ -29,17 +29,20 @@
         </nav>
     </header>
     <main>
-        <p id="maintext">Наши преимущества</p> 
-        
-        <div class="grid-container">
-            <div class="grid-item">ДОСТУПНОСТЬ</div>
-            <div class="grid-item">КОМФОРТ</div>
-            <div class="grid-item">КАЧЕСТВО</div>
-            <div class="grid-item">СКОРОСТЬ</div>
+        <p id="headtext">Расписание приема</p>
+        <div class="appointment">
+            <table id="timeSlotsTable">
+            <thead>
+                <tr id="datesRow"></tr>
+            </thead>
+            <tbody id="timeSlotsBody"></tbody>
+            </table>
         </div>
 </main>
 <footer>
     <p>&copy;2024 Александриди-Шандаевский Егорий | ИКБО-20-22</p>
 </footer>
+  <!-- <script src="../static/scripts/script.js"></script> -->
+  <script src="/resources/scripts/script.js"></script>
 </body>
 </html>
