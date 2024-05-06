@@ -51,8 +51,8 @@ async function generateTimeSlotsForDay(date) {
     // Очистка таблицы перед добавлением новых данных
     timeSlotsBody.innerHTML = '';
     datesRow.innerHTML = ''; // Очищаем заголовки перед добавлением новых
-
-    let currentDate = new Date();
+    var date = "2024-06-24";
+    let currentDate = new Date(date);
     for (let i = 0; i < 7; i++) { // 7 заголовков для каждого дня недели
         const dateCell = document.createElement('th');
         const options = { weekday: 'short', day: 'numeric', month: 'short' };
@@ -61,7 +61,7 @@ async function generateTimeSlotsForDay(date) {
         currentDate.setDate(currentDate.getDate() + 1); // Переходим к следующему дню
     }
 
-    currentDate = new Date(); // Сбросим дату на текущую дату для генерации временных слотов
+    currentDate = new Date(date);
     const timeSlotsForDay = await generateTimeSlotsForDay(currentDate);
     console.log(timeSlotsForDay);
     for (let i = 0; i < 12; i++) { // 12 временных слотов
